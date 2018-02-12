@@ -1,8 +1,8 @@
 import { Context } from 'koa';
 import * as Router from 'koa-router';
 import * as bodyParser from 'koa-bodyparser';
-import { Configuration, InstancePlugin } from 'csv-wealth-api';
-import { uploadCSV } from './index';
+import { InstancePlugin } from 'csv-wealth-api';
+import { uploadCSV, getTop10 } from './index';
 
 const bodyParsedMiddleware = bodyParser({
   enableTypes: ['json', 'text', 'form'],
@@ -15,13 +15,13 @@ const bodyParsedMiddleware = bodyParser({
   },
 });
 
-const bindRoutes = (router: Router, config: Configuration) =>
+const bindRoutes = (router: Router) =>
   router
-    .post('/csv/upload', bodyParsedMiddleware, uploadCSV(config));
-    // .get('/csv', getCSV);
+    .post('/csv/upload', bodyParsedMiddleware, uploadCSV)
+    .get('/top10', getTop10);
 
 const addRoutes: InstancePlugin = async (params) => {
-  params.instance.use(bindRoutes(new Router(), params.config).routes());
+  params.instance.use(bindRoutes(new Router()).routes());
 
   console.log('Routes assigned');
 

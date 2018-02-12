@@ -2,7 +2,7 @@ import { Context } from 'koa';
 import { convertCSV } from '../utils';
 import { getClient } from '../db';
 
-export default () => async (ctx: Context) => {
+export default async (ctx: Context) => {
   const records = await convertCSV(ctx.request.body);
   const client = await getClient();
 

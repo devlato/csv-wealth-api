@@ -34,9 +34,7 @@
       "koa-bodyparser": "^4.2.0",
       "koa-router": "^7.4.0",
       "lodash": "^4.17.5",
-      "mongodb": "^2.2.31",
-      "reflect-metadata": "^0.1.10",
-      "typeorm": "^0.1.12"
+      "mongodb": "^2.2.31"
    },
    "devDependencies": {
       "@types/jest": "^22.1.2",
