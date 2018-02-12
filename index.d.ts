@@ -1,6 +1,12 @@
 declare module 'csv-wealth-api' {
   import * as Koa from 'koa';
-  import { ConnectionOptions, Connection } from 'typeorm';
+  import { MongoClient } from 'mongodb';
+
+  export type Connection = MongoClient;
+  export interface ConnectionOptions {
+    url: string;
+    dbname: string;
+  }
 
   export interface Configuration {
     instance: {

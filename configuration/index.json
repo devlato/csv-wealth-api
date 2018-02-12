@@ -4,25 +4,7 @@
     "port": 4000
   },
   "db": {
-    "type": "mongodb",
-    "host": "localhost",
-    "port": 27017,
-    "database": "csv",
-    "synchronize": true,
-    "logging": true,
-    "entities": [
-      "src/db/entities/**/*.ts"
-    ],
-    "migrations": [
-      "src/db/migrations/**/*.ts"
-    ],
-    "subscribers": [
-      "src/db/subscribers/**/*.ts"
-    ],
-    "cli": {
-      "entitiesDir": "src/db/entities",
-      "migrationsDir": "src/db/migrations",
-      "subscribersDir": "src/db/subscribers"
-    }
+    "url": "mongodb://localhost:27017",
+    "dbname": "csv"
   }
 }
