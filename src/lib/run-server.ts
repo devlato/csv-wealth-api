@@ -1,24 +1,29 @@
-import { Configuration, InstancePlugin } from 'csv-wealth-api';
+import { Configuration, InstancePlugin, InstancePluginOptions } from 'csv-wealth-api';
 import * as Koa from 'koa';
-import { flowRight as compose } from 'lodash';
+import { compose } from './utils';
 import { addRoutes } from './routes';
 import { initConnection } from './db';
 
-const init = compose([
+const startListening: InstancePlugin = async params =>
+  new Promise<InstancePluginOptions>(async (resolve, reject) => {
+    try {
+      params.instance.listen(params.config.instance.port, () => {
+        resolve(params);
+      });
+    } catch (e) {
+      reject(e);
+    }
+  });
+
+const init = compose<InstancePluginOptions>(
   initConnection,
   addRoutes,
-]) as InstancePlugin;
+  startListening,
+);
 
-export default async (config: Configuration) => new Promise(async (resolve, reject) => {
-  try {
-    const instance = new Koa();
-
-    init({ instance, config })
-      .instance
-      .listen(config.instance.port, () => {
-        resolve();
-      });
-  } catch (e) {
-    reject(e);
-  }
-});
+export default async (config: Configuration) => {
+  await init({
+    config,
+    instance: new Koa(),
+  });
+};

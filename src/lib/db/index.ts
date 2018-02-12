@@ -1,1 +1,1 @@
-export { default as initConnection } from './init-connection';
+export { default as initConnection, getConnection } from './init-connection';

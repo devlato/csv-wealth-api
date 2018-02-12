@@ -1,50 +1,56 @@
 {
-  "name": "csv-wealth-api",
-  "version": "1.0.0",
-  "description": "CSV Wealth API",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest",
-    "build": "tsc",
-    "start": "ts-node-dev src/index.ts",
-    "lint": "tslint -c ./tslint.json -p ./tsconfig.json",
-    "validate": "npm run build && npm run lint && npm run test",
-    "prepush": "npm run validate"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/devlato/csv-wealth-api.git"
-  },
-  "keywords": [
-    "csv",
-    "wealth"
-  ],
-  "author": "Denis Tokarev <github@devlato.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/devlato/csv-wealth-api/issues"
-  },
-  "homepage": "https://github.com/devlato/csv-wealth-api#readme",
-  "dependencies": {
-    "@types/lodash": "^4.14.102",
-    "koa": "^2.5.0",
-    "koa-router": "^7.4.0",
-    "lodash": "^4.17.5",
-    "mongodb": "^3.0.2",
-    "typeorm": "^0.1.12"
-  },
-  "devDependencies": {
-    "@types/jest": "^22.1.2",
-    "@types/koa": "^2.0.44",
-    "@types/koa-router": "^7.0.27",
-    "@types/mongodb": "^3.0.5",
-    "@types/node": "^9.4.5",
-    "husky": "^0.14.3",
-    "jest": "^22.2.2",
-    "ts-jest": "^22.0.4",
-    "ts-node-dev": "^1.0.0-pre.11",
-    "tslint": "^5.9.1",
-    "tslint-config-airbnb": "^5.6.0",
-    "typescript": "^2.7.1"
-  }
+   "name": "csv-wealth-api",
+   "version": "1.0.0",
+   "description": "CSV Wealth API",
+   "main": "index.js",
+   "scripts": {
+      "test": "jest",
+      "build": "tsc",
+      "start": "ts-node src/index.ts",
+      "lint": "tslint -c ./tslint.json -p ./tsconfig.json",
+      "validate": "npm run build && npm run lint && npm run test",
+      "prepush": "npm run validate"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/devlato/csv-wealth-api.git"
+   },
+   "keywords": [
+      "csv",
+      "wealth"
+   ],
+   "author": "Denis Tokarev <github@devlato.com>",
+   "license": "MIT",
+   "bugs": {
+      "url": "https://github.com/devlato/csv-wealth-api/issues"
+   },
+   "homepage": "https://github.com/devlato/csv-wealth-api#readme",
+   "dependencies": {
+      "@types/csvtojson": "^1.1.5",
+      "@types/koa-bodyparser": "^4.2.0",
+      "@types/lodash": "^4.14.102",
+      "csvtojson": "^1.1.9",
+      "koa": "^2.5.0",
+      "koa-bodyparser": "^4.2.0",
+      "koa-router": "^7.4.0",
+      "lodash": "^4.17.5",
+      "mongodb": "^2.2.31",
+      "reflect-metadata": "^0.1.10",
+      "typeorm": "^0.1.12"
+   },
+   "devDependencies": {
+      "@types/jest": "^22.1.2",
+      "@types/koa": "^2.0.44",
+      "@types/koa-router": "^7.0.27",
+      "@types/mongodb": "^3.0.5",
+      "@types/node": "^8.0.29",
+      "husky": "^0.14.3",
+      "jest": "^22.2.2",
+      "ts-jest": "^22.0.4",
+      "ts-node": "3.3.0",
+      "ts-node-dev": "^1.0.0-pre.11",
+      "tslint": "^5.9.1",
+      "tslint-config-airbnb": "^5.6.0",
+      "typescript": "^2.7.1"
+   }
 }

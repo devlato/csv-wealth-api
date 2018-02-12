@@ -1,7 +1,14 @@
+import 'reflect-metadata';
 import { Configuration } from 'csv-wealth-api';
 import runServer from './lib/run-server';
 
 const config = require('../configuration') as Configuration;
+
+process.on('uncaughtException', (e) => {
+  console.log('Uncaught exception happened');
+  console.error(e.stack);
+  process.exit(-1);
+});
 
 (async () => {
   try {
